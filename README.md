@@ -2,7 +2,7 @@
 
 <img src="https://github.com/RonnyldoSilva/React-Hook-REST-API/blob/master/src/logo.svg"
      alt="React"
-     style="float: left; margin-right: 10px; width: 50px;" />
+     style="float: left; margin-right: 10px; size: 50px;" />
 
 ### How to Load Data from a REST API with React Hooks
 
@@ -15,30 +15,21 @@ sudo yarn install
 yarn start
 ```
 ### With GET
-```react
-
+```javascript
+useEffect(() => {
+     axios
+     .get("https://jsonplaceholder.typicode.com/users")
+     .then(result => setData(result.data));
+}, []);
 ```
 ### With POST
-```react
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-
-export default function App() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const params = {"general_params": {"service":["instagram"]}, "influencer_only_params":{"minimum_followers": 100000, "maximum_followers": 100000000}};
-    axios.post(`https://es-staging.bm3.elife.com.br/influencers.json?key=zAtAmexezeqaTRaGapHEc4TaDaZESEsT`,  
-    {params} )
-    .then(result => {setData(result.data); console.log(result.data)});
-  }, []);
-
-  return (
-    <div>
-      {data}
-    </div>
-  );
-}
+```javascript
+useEffect(() => {
+     const params = {"general_params": {"service":["instagram"]}, "influencer_only_params":{"minimum_followers": 100000, "maximum_followers": 100000000}};
+     axios.post(`https://es-staging.bm3.elife.com.br/influencers.json?key=zAtAmexezeqaTRaGapHEc4TaDaZESEsT`,  
+     {params} )
+     .then(result => {setData(result.data); console.log(result.data)});
+}, []);
 ```
 
 ### Please leave a star :) 

@@ -14,6 +14,32 @@ In the root:
 sudo yarn install
 yarn start
 ```
+### With GET
+```react
+
+```
+### With POST
+```react
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+export default function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const params = {"general_params": {"service":["instagram"]}, "influencer_only_params":{"minimum_followers": 100000, "maximum_followers": 100000000}};
+    axios.post(`https://es-staging.bm3.elife.com.br/influencers.json?key=zAtAmexezeqaTRaGapHEc4TaDaZESEsT`,  
+    {params} )
+    .then(result => {setData(result.data); console.log(result.data)});
+  }, []);
+
+  return (
+    <div>
+      {data}
+    </div>
+  );
+}
+```
 
 ### Please leave a star :) 
 :star::star::star::star::star:

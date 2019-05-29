@@ -2,7 +2,7 @@
 
 <img src="https://github.com/RonnyldoSilva/React-Hook-REST-API/blob/master/src/logo.svg"
      alt="React"
-     style="float: left; margin-right: 10px; width: 50px" />
+     style="float: left; margin-right: 10px; width: 50px;" />
 
 ### How to Load Data from a REST API with React Hooks
 

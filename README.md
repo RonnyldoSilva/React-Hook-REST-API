@@ -25,7 +25,7 @@ useEffect(() => {
 useEffect(() => {
      const params = {"general_params": {"service":["instagram"]}, "influencer_only_params":{"minimum_followers": 100000, "maximum_followers": 100000000}};
      axios.post(`https://es-staging.bm3.elife.com.br/influencers.json?key=zAtAmexezeqaTRaGapHEc4TaDaZESEsT`,  
-     {params} )
+     params )
      .then(result => {setData(result.data); console.log(result.data)});
 }, []);
 ```

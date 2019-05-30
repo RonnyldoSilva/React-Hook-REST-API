@@ -97,6 +97,25 @@ const useRendered = () => {
 };
 ```
 
+In the component:
+```javascript
+if (loading) {
+     return;
+}
+
+setLoading(true);
+
+try {
+     await callback(...args);
+} finally {
+     if (rendered.current) {
+          setLoading(false);
+     }
+}
+```
+
+
+
 ### Please leave a star :) 
 :star::star::star::star::star:
 

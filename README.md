@@ -83,6 +83,20 @@ const App = () => {
 }
 ```
 
+Another cool ex, when you do a fetch on an api, but the user changes the screen before the fetch ends, the component does not read? so the fetch at the end will call setState, and a warning saying it can not change the state of rendered components, which makes sense.
+
+To avoid this:
+```javascript
+const useRendered = () => {
+ const rendered = useRef(true);
+
+ // componentWillUnmount
+ useEffect(() => () => (rendered.current = false), []);
+
+ return rendered;
+};
+```
+
 ### Please leave a star :) 
 :star::star::star::star::star:
 

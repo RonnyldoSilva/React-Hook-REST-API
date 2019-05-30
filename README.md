@@ -30,6 +30,59 @@ useEffect(() => {
 }, []);
 ```
 
+### Good practices
+
+I like to hook because it allows me to do it here.
+```javascript
+// hooks/useVersion.js
+
+import { useState, useEffect } from 'react'
+
+
+const useVersion = () => {
+ const [version, setVersion] = useState(null)
+
+ useEffect(() => {
+   const resize = () => {
+     if (window.innerWidth < 988) {
+       if (version !== 'mobile') {
+         setVersion('mobile')
+       }
+     } else if (version !== 'desktop') {
+       setVersion('desktop')
+     }
+   }
+
+   resize()
+
+   window.addEventListener('resize', resize)
+
+   return () => {
+     window.removeEventListener('resize', resize)
+   }
+ }, [version])
+
+ return version
+}
+
+export default useVersion
+
+
+// App.js
+
+const App = () => {
+ const version = useVersion()
+
+ if (version === null) {
+   return
+ } else if (version === 'mobile') {
+   // mobile content
+ } else {
+   // desktop content
+ }
+}
+```
+
 ### Please leave a star :) 
 :star::star::star::star::star:
 

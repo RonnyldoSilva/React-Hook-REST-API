@@ -114,7 +114,7 @@ try {
 }
 ```
 
-
+rendered.current, because the rendered is a ref, so the ref is accessed by the current.
 
 ### Please leave a star :) 
 :star::star::star::star::star:

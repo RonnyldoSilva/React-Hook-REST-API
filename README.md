@@ -116,6 +116,10 @@ try {
 
 rendered.current, because the rendered is a ref, so the ref is accessed by the current.
 
+### Navegando entre páginas sem refresh
+https://medium.com/collabcode/roteamento-no-react-com-os-poderes-do-react-router-v4-fbc191b9937d
+
+
 ### Please leave a star :) 
 :star::star::star::star::star:
 
